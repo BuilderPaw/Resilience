@@ -1,0 +1,1132 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LocalDb" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\LocalDb.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=0" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LocalDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="RCatId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLDutyManager" />
+      <Association Name="Category_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaDutyManager" />
+      <Association Name="Category_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLSupervisor" />
+      <Association Name="Category_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLFunctionSupervisor" />
+      <Association Name="Category_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLReceptionSupervisor" />
+      <Association Name="Category_Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLReception" />
+      <Association Name="Category_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaReception" />
+      <Association Name="Category_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLIncident" />
+      <Association Name="Category_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaIncident" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shift" Member="Shifts">
+    <Type Name="Shift">
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShiftName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Shift_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLDutyManager" />
+      <Association Name="Shift_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaDutyManager" />
+      <Association Name="Shift_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLSupervisor" />
+      <Association Name="Shift_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLFunctionSupervisor" />
+      <Association Name="Shift_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLReceptionSupervisor" />
+      <Association Name="Shift_Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLReception" />
+      <Association Name="Shift_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaReception" />
+      <Association Name="Shift_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLIncident" />
+      <Association Name="Shift_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaIncident" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaffName" Member="StaffNames">
+    <Type Name="StaffName">
+      <Column Name="StaffNameId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers">
+    <Type Name="Report_MerrylandsRSLDutyManager">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Supervisors" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Whs" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CostSavings" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClubPresent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClubMaintenance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Absenteeism" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffIssues" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gaming" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="KeySecurity" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Cameras" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LuckyRewards" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Compliance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLDutyManager" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLDutyManager" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLDutyManager" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers">
+    <Type Name="Report_ClubUminaDutyManager">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Supervisors" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Whs" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CostSavings" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClubPresent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClubMaintenance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Absenteeism" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffIssues" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gaming" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="KeySecurity" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Cameras" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LuckyRewards" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Compliance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_ClubUminaDutyManager" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaDutyManager" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaDutyManager" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors">
+    <Type Name="Report_MerrylandsRSLSupervisor">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SignInSlip" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Reception" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gaming" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Bar" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TabKeno" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HouseKeeping" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Bistro" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FoodHygiene" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Events" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CustomerService" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LuckyRewards" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RSA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AMLCTF" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLSupervisor" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLSupervisor" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLSupervisor" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors">
+    <Type Name="Report_MerrylandsRSLFunctionSupervisor">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FunctionName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NumberOfGuests" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Setup" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="MenuFeedback" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BarFeedback" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffIssues" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLFunctionSupervisor" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLFunctionSupervisor" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLFunctionSupervisor" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors">
+    <Type Name="Report_MerrylandsRSLReceptionSupervisor">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SignInSlip" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Refusals" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventsField" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLReceptionSupervisor" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLReceptionSupervisor" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLReceptionSupervisor" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions">
+    <Type Name="Report_MerrylandsRSLReception">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SignInSlip" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Refusals" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventsField" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLReception" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLReception" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLReception" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_ClubUminaReception" Member="Report_ClubUminaReceptions">
+    <Type Name="Report_ClubUminaReception">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SignInSlip" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Refusals" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventsField" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_ClubUminaReception" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaReception" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaReception" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StaffGroup" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StaffNameId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Staff_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLDutyManager" />
+      <Association Name="Staff_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaDutyManager" />
+      <Association Name="Staff_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLSupervisor" />
+      <Association Name="Staff_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLFunctionSupervisor" />
+      <Association Name="Staff_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLReceptionSupervisor" />
+      <Association Name="Staff_Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLReception" />
+      <Association Name="Staff_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaReception" />
+      <Association Name="Staff_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLIncident" />
+      <Association Name="Staff_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaIncident" />
+      <Association Name="Staff_BillPayment" Member="BillPayments" ThisKey="StaffId" OtherKey="StaffId" Type="BillPayment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents">
+    <Type Name="Report_MerrylandsRSLIncident">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoOfPerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartyType1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto1" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image1" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto2" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup2" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image2" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto3" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup3" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image3" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto4" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup4" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image4" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto5" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup5" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image5" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeH" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeM" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeTC" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeTC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LocationOther" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamDesc1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CamETimeTC5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc6" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded6" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath6" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc7" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded7" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath7" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IncidentHappened" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedOther" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedSerious" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedRefuseEntry" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedAskedToLeave" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ActionTaken" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ActionTakenOther" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Allegation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SecurityAttend" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SecurityName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PoliceNotify" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PoliceStation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="OfficersName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PoliceAction" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLIncident" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLIncident" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLIncident" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_ClubUminaIncident" Member="Report_ClubUminaIncidents">
+    <Type Name="Report_ClubUminaIncident">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoOfPerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartyType1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto1" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image1" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto2" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup2" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image2" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto3" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup3" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image3" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto4" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup4" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image4" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PartyType5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Witness5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CardHeld5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlayerId5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto5" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffEmpNo5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffAddress5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PDate5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeH5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeH5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeM5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeM5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PTimeTC5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtPTimeTC5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgeGroup5" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hair5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingTop5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClothingBottom5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Shoes5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Weapon5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gender5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtGender5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistFeatures5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjuryDesc5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CauseInjury5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image5" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeH" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeM" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeTC" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeTC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LocationOther" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamDesc1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC1" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath4" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath5" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CamETimeTC5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc6" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded6" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath6" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC6" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamDesc7" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamRecorded7" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CamFilePath7" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CamSDate7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeH7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeH7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeM7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeM7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamSTimeTC7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamSTimeTC7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamEDate7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeH7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeH7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeM7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeM7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CamETimeTC7" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtCamETimeTC7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IncidentHappened" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedOther" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedSerious" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedRefuseEntry" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HappenedAskedToLeave" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ActionTaken" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ActionTakenOther" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Allegation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SecurityAttend" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SecurityName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PoliceNotify" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PoliceStation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="OfficersName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PoliceAction" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_ClubUminaIncident" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaIncident" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaIncident" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BillPayment" Member="BillPayments">
+    <Type Name="BillPayment">
+      <Column Name="BillPaymentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Site" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Biller" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfirmationId" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cash" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="EFTPOS" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Points" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Miscellaneous1" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Miscellaneous2" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Cheques" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="EnteredDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TradingDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Staff_BillPayment" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

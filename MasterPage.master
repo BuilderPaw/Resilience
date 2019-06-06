@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Club Reports</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- matches CSS Styles in IIS -->
+    <script type="text/javascript" src="Scripts/JavaScript.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/CSS/MasterStyle.css" type="text/css" />
+    <!-- 
+        <meta http-equiv="refresh" content="28790">
+
+        28 790 seconds is equal to 7.997 hours.
+        Page refreshes before cookie and ticket expires.
+        reference: https://en.wikipedia.org/wiki/Meta_refresh
+    -->
+    <script type="text/javascript">
+        //Bind back button to prevent escaping the page with backspace
+        $(document).unbind('keydown').bind('keydown', function (event) {
+            if (event.keyCode === 8 || event.keyCode == 13) {
+                var doPrevent = true;
+                //Chrome, FF, Safari
+                if (event.target == document.body) {
+                    doPrevent = true;
+                }
+                //IE
+                else {
+                    var nodeName = event.target.nodeName.toLowerCase();
+                    if ((nodeName == "input" && event.target.type == "text" || event.target.type == "password") || nodeName == "textarea") {
+                        doPrevent = false;
+                    }
+                    var SPEditTabInstance = $(document).find("li[id='Ribbon.EditingTools']");
+                    if (SPEditTabInstance != "undefined" && SPEditTabInstance != null && $(SPEditTabInstance).children().length > 0) {
+                        doPrevent = false;
+                    }
+                }
+
+                if (doPrevent) {
+                    //Chrome, FF, Safari
+                    if (event.preventDefault()) { event.preventDefault(); }
+                    //IE
+                    else {
+                        event.returnValue = false;
+                    }
+                }
+            }
+        });
+
+        function openUpdatesAndReminders(hyperlink) {
+            window.open('/Web_Forms/UpdatesReminders.aspx', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1');
+            return false;
+        }
+
+        function CancelReturnKey() {
+            if (window.event.keyCode == 13)
+                return false;
+        }
+
+        function button_click(objTextBox, objBtnID) {
+            if (event.keyCode == 13) {
+                document.getElementById(objBtnID).focus();
+                document.getElementById(objBtnID).click();
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div>
+                    <div class="header">
+                        
+                    </div>
+                    <div>
+                        <!-- body -->
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div>
+                        <div class="footer">
+                            <!-- footer -->
+                            <div class="footer-div">
+                                <asp:Label ID="Label1" runat="server"><%: DateTime.Now.ToLongDateString()%></asp:Label>
+                                <asp:HyperLink ID="HyperLink1" runat="server" style="font-weight:700; font-size:12px; float:right;" onclick="return openUpdatesAndReminders(this)">Updates and Reminders</asp:HyperLink>
+                                <div id="username" runat="server">
+                                    <asp:Label ID="Label2" class="footer-object" runat="server">Logged in as : <%=Session["Username"]%></asp:Label>
+                                    <br />
+                                    <asp:Label ID="Label3" class="footer-object" runat="server">Developed by : Paolo Santiago</asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
+</body>
+</html>
+
